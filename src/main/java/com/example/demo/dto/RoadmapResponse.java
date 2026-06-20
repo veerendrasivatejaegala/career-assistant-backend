@@ -1,0 +1,78 @@
+package com.example.demo.dto;
+
+public class RoadmapResponse {
+
+    private String month1;
+    private String month2;
+    private String month3;
+    private String month4;
+    private String month5;
+    private String month6;
+
+    public RoadmapResponse() {}
+
+    public RoadmapResponse(
+            String month1,
+            String month2,
+            String month3,
+            String month4,
+            String month5,
+            String month6) {
+
+        this.month1 = month1;
+        this.month2 = month2;
+        this.month3 = month3;
+        this.month4 = month4;
+        this.month5 = month5;
+        this.month6 = month6;
+    }
+
+    // Generate Getters & Setters
+    public String getMonth1() {
+        return month1;
+    }
+
+    public void setMonth1(String month1) {
+        this.month1 = month1;
+    }
+
+    public String getMonth2() {
+        return month2;
+    }
+
+    public void setMonth2(String month2) {
+        this.month2 = month2;
+    }
+
+    public String getMonth3() {
+        return month3;
+    }
+
+    public void setMonth3(String month3) {
+        this.month3 = month3;
+    }
+
+    public String getMonth4() {
+        return month4;
+    }
+
+    public void setMonth4(String month4) {
+        this.month4 = month4;
+    }
+
+    public String getMonth5() {
+        return month5;
+    }
+
+    public void setMonth5(String month5) {
+        this.month5 = month5;
+    }
+
+    public String getMonth6() {
+        return month6;
+    }
+
+    public void setMonth6(String month6) {
+        this.month6 = month6;
+    }
+}
