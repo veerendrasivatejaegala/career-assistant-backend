@@ -62,7 +62,7 @@ public MarketTrendResponse analyzeMarketTrend(String interests, Double cgpa) {
                 - "career" (string: recommended job title)
                 - "matchScore" (string: percentage)
                 - "missingSkills" (array of strings)
-                - "roadmap" (array of strings)
+                - "roadmap" (array of 6 strings, representing a 60-day plan divided into 6 stages of 10 days each: Days 1-10, Days 11-20, Days 21-30, Days 31-40, Days 41-50, and Days 51-60 respectively)
                 """.formatted(javaSkill, dsaSkill, cgpa);
 
         try {
@@ -75,19 +75,33 @@ public MarketTrendResponse analyzeMarketTrend(String interests, Double cgpa) {
             e.printStackTrace();
             
             // Safe hardcoded response fallback if internet/DNS fails
-            if (cgpa >= 8.0 && javaSkill.equalsIgnoreCase("Intermediate")) {
+            if (cgpa >= 8.0 && javaSkill.toLowerCase().contains("intermediate")) {
                 return new CareerResponse(
                     "Java Backend Developer (Offline Mode)", 
                     "85%", 
                     Arrays.asList("Spring Boot", "Docker", "AWS", "Microservices"), 
-                    Arrays.asList("Learn Spring Data JPA", "Build REST APIs", "Study System Design")
+                    Arrays.asList(
+                        "Days 1-10: Learn Spring Boot & Spring Data JPA fundamentals.", 
+                        "Days 11-20: Build REST APIs & perform Database Integration.", 
+                        "Days 21-30: Study microservices architecture patterns.",
+                        "Days 31-40: Implement Spring Cloud Config and Service Discovery (Eureka).",
+                        "Days 41-50: Study containerization with Docker and deployment via AWS ECS.",
+                        "Days 51-60: Focus on System Design concepts and mock interviews."
+                    )
                 );
             } else {
                 return new CareerResponse(
                     "Software Engineer (Offline Mode)", 
                     "75%", 
                     Arrays.asList("Data Structures", "System Design", "SQL Fundamentals"), 
-                    Arrays.asList("Solve LeetCode Basics", "Object-Oriented Programming", "Mock Interviews")
+                    Arrays.asList(
+                        "Days 1-10: Learn basic Data Structures including Arrays, Linked Lists, and Hash Maps.", 
+                        "Days 11-20: Understand sorting/searching algorithms and recursion basics.", 
+                        "Days 21-30: Practice SQL queries, schema design, and normalization.",
+                        "Days 31-40: Learn Object-Oriented Design principles and design patterns.",
+                        "Days 41-50: Study scalability basics, horizontal/vertical scaling, and load balancing.",
+                        "Days 51-60: Build a robust project, prepare your resume, and conduct mock interviews."
+                    )
                 );
             }
         }
